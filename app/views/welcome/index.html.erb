@@ -1,1 +1,8 @@
 <h1>Welcome!</h1>
+<%if current_user %>
+  <p> <%= current_user.email %></p>
+  <%current_user.roles.each do |roles| %>
+    <p> <%= roles.name %></p>
+  <% end %>
+<% end %>
+<%= link_to 'Profile', profile_path %>
