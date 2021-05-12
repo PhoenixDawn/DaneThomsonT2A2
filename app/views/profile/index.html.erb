@@ -1,2 +1,10 @@
 <h1>Profile</h1>
+<strong>Name:</strong>
+<p><%=current_user.name%></p>
+<strong>Email:</strong>
+<p><%=current_user.email%></p>
+<strong>Roles</strong>
+<% current_user.roles.each do |role|%>
+  <p><%= role.name %></p>
+<% end %>
 <%= link_to 'edit', edit_user_registration_path %>

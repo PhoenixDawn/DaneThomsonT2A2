@@ -7,6 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def add_default_role
-    self.add_role(:user)
+    add_role(:user)
   end
 end
