@@ -19,6 +19,10 @@
   <strong>User:</strong>
   <%= @listing.user.name %>
 </p>
+<p>
+  <% if @listing.photo.attached? %>
+    <%= cl_image_tag @listing.photo.key, :width=>150, :crop=>"fill" %>
+  <% end %></p>
 <% if @listing.user_id == current_user.id %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>

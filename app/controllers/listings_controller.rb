@@ -12,8 +12,8 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    authorize @listing
     @listing = Listing.new
+    authorize @listing
   end
 
   # GET /listings/1/edit
@@ -23,9 +23,9 @@ class ListingsController < ApplicationController
 
   # POST /listings or /listings.json
   def create
-    authorize @listing
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
+    authorize @listing
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: "Listing was successfully created." }
@@ -70,6 +70,6 @@ class ListingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def listing_params
-    params.require(:listing).permit(:name, :price, :description, :ingredients, :user_id)
+    params.require(:listing).permit(:name, :price, :description, :ingredients, :user_id, :photo)
   end
 end

@@ -62,3 +62,5 @@ gem "dotenv-rails", "~> 2.7"
 gem "rolify", "~> 6.0"
 
 gem "pundit", "~> 2.1"
+
+gem "cloudinary", "~> 1.20"
