@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    authorize Listing
+    authorize @listing
     @listing = Listing.new
   end
 
