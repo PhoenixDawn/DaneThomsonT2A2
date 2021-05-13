@@ -5,6 +5,7 @@
 <p><%=current_user.email%></p>
 <strong>Roles</strong>
 <% current_user.roles.each do |role|%>
-  <p><%= role.name %></p>
+  <p><%= role.name.capitalize %></p>
 <% end %>
 <%= link_to 'edit', edit_user_registration_path %>
+<%= link_to 'back', root_path %>

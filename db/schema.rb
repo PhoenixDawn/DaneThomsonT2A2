@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_114555) do
+ActiveRecord::Schema.define(version: 2021_05_13_035716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listings", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "description"
+    t.text "ingredients"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -46,4 +57,5 @@ ActiveRecord::Schema.define(version: 2021_05_12_114555) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "listings", "users"
 end
