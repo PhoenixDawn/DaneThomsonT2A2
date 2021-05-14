@@ -7,8 +7,9 @@
 <% current_user.roles.each do |role|%>
   <p><%= role.name.capitalize %></p>
 <% end %>
-<% if !current_user.confirmed? %>
-  <strong> User Account is not confirmed! </strong>
-<% end %>
+<div>
+  <strong>Address</strong>
+  <p><%= current_user.street_number%>, <%=current_user.suburb%>, <%=current_user.postcode%>, <%=current_user.state%></p>
+</div>
 <%= link_to 'edit', edit_user_registration_path %>
 <%= link_to 'back', root_path %>
