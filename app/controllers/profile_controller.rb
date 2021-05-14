@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
   end
 
   #POST to /profile to update Grandma status
-  def add_role
+  def become_grandma
     current_user.add_role :grandma
     redirect_to profile_path
   end

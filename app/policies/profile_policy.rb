@@ -1,5 +1,5 @@
 class ProfilePolicy < ApplicationPolicy
-  def add_role?
+  def become_grandma?
     !@user.has_role? :grandma
   end
 end
