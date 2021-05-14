@@ -61,6 +61,13 @@ class ListingsController < ApplicationController
     end
   end
 
+  #GET /listings/view/1
+  def show_users
+    user = User.find(params[:id])
+    @grandma = user.name
+    @listings = Listing.where(user_id: user.id)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
