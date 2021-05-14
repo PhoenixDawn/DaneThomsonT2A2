@@ -64,3 +64,5 @@ gem "rolify", "~> 6.0"
 gem "pundit", "~> 2.1"
 
 gem "cloudinary", "~> 1.20"
+
+gem "mailboxer", "~> 0.15.1"
