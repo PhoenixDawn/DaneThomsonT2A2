@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  #Direct message route
+  #Direct message routes
   get "/conversations/new/:id", to: "conversations#new_direct_message", as: "direct_message"
   post "/conversations/new/:id", to: "conversations#create_direct_message"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
