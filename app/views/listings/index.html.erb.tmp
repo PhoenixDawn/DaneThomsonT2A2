@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1>Listings</h1>
-<div class= "d-flex flex-wrap">
+<div class= "d-flex flex-wrap justify-content-center ms-5">
   <% @listings.each do |listing| %>
-    <div class="card me-5" style="width: 18rem;">
-      <%= cl_image_tag listing.photo.key, :width=>150, :crop=>"fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
+    <div class="card me-5 mb-3" style="width: 18rem;">
+      <%= cl_image_tag listing.photo.key, width:150, height: 150, :crop=>"fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
       <div class="card-body">
         <h5 class="card-title"><%= listing.name %></h5>
         <p class="card-text"><%= listing.description %></p>
@@ -11,7 +11,7 @@
         <%= link_to 'View', listing, class: "btn btn-primary text-light" %>
         <% if listing.user_id == current_user.id %>
           <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-primary text-light" %>
-          <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary text-light bg-danger" %>
+          <%= link_to 'Remove', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary text-light bg-danger" %>
         <% end %>
       </div>
     </div>
