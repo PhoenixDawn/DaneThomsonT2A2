@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "welcome#index"
   get "/profile", to: "profile#index", as: "profile"
   post "/profile", to: "profile#become_grandma"
+
+  #Show listings of one grandma
   get "/listings/view/:id", to: "listings#show_users", as: "listings_show_users"
 
   #Mailbox routes
