@@ -17,7 +17,7 @@
 </p>
 <p>
   <strong>User:</strong>
-  <%= link_to @listing.user.name, listings_show_users_path %>
+  <%= link_to @listing.user.name, listings_show_users_path(@listing.user) %>
 </p>
 <p>
   <% if @listing.photo.attached? %>

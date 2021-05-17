@@ -1,4 +1,4 @@
-<h1>Listings for <%=@grandma%></h1>
+<h1>Listings for <%=@grandma.name%></h1>
 <table>
   <thead>
     <tr>
@@ -24,4 +24,7 @@
       </tr>
     <% end %>
   </tbody>
+  <% if current_user.id != @grandma.id %>
+    <%= link_to 'Message me!', direct_message_path(@grandma) %>
+  <% end %>
 </table>
