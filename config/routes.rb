@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   #Direct message route
   get "/conversations/new/:id", to: "conversations#new_direct_message", as: "direct_message"
-  post "/conversation/new/:id", to: "conversations#create_direct_message"
+  post "/conversations/new/:id", to: "conversations#create_direct_message"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
