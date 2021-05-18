@@ -1,9 +1,8 @@
-  
 <h1>Listings for <%=@grandma.name%></h1>
 <% if current_user.id != @grandma.id %>
   <%= link_to 'Message me!', direct_message_path(@grandma) %>
 <% end %>
-<div class= "d-flex flex-wrap justify-content-center">
+<div class= "d-flex flex-wrap justify-content-around">
   <% @listings.each do |listing| %>
     <div class="card me-5 mb-3" style="width: 18rem;">
       <%= cl_image_tag listing.photo.key, width:150, height: 150, :crop=>"fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>

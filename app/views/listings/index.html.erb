@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1>Listings</h1>
-<div class= "d-flex flex-wrap justify-content-center ms-5">
+<div class= "d-flex flex-wrap justify-content-around">
   <% @listings.each do |listing| %>
     <div class="card me-5 mb-3" style="width: 18rem;">
-      <%= cl_image_tag listing.photo.key, width:150, height: 150, :crop=>"fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
+      <%= cl_image_tag listing.photo.key, width:150, height: 150, crop: "fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
       <div class="card-body">
         <h5 class="card-title"><%= listing.name %></h5>
         <p class="card-text"><%= listing.description %></p>

@@ -10,19 +10,24 @@
   </head>
   <body>
     <header>
-      <nav>
-        <span><%= link_to 'Home', root_path %></span>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <%= image_tag 'only-grans-logo.png', width: "200", height:"50", class:"d-inline-block align-text-top" %>
+            Only Grans
+          </a>
+        </div>
+        <span><%= link_to 'Home', root_path, class: "nav-link"%></span>
         <% if current_user %>
-          <span><%= link_to 'Profile', profile_path %></span>
-          <span><%= link_to 'Listings', listings_path %></span>
-          <span><%= link_to 'Messages', conversations_path %></span>
+          <span><%= link_to 'Profile', profile_path, class: "nav-link" %></span>
+          <span><%= link_to 'Listings', listings_path, class: "nav-link" %></span>
+          <span><%= link_to 'Messages', conversations_path, class: "nav-link" %></span>
         <% end %>
         <% if !current_user %>
-          <span><%= link_to 'Login', new_user_session_path %></span>
-          <span><%= link_to 'Signup', new_user_registration_path %></span>
+          <span><%= link_to 'Login', new_user_session_path, class: "nav-link" %></span>
+          <span><%= link_to 'Signup', new_user_registration_path, class: "nav-link" %></span>
         <% else %>
-          <span><%= current_user.email %></span>
-          <span><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
+          <span><%= link_to current_user.name + ' | Logout', destroy_user_session_path, method: :delete, class: "nav-link" %></span>
         <% end %>
       </nav>
     </header>
