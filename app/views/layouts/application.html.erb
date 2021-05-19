@@ -14,7 +14,6 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
             <%= image_tag 'only-grans-logo.png', width: "200", height:"50", class:"d-inline-block align-text-top" %>
-            Only Grans
           </a>
         </div>
         <span><%= link_to 'Home', root_path, class: "nav-link"%></span>
@@ -31,8 +30,10 @@
         <% end %>
       </nav>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <h2 class="notice bg-info bg-gradient text-center"><%= notice %></h2>
+    <% if alert %>
+      <p class="alert bg-danger bg-gradient"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </body>

@@ -1,7 +1,10 @@
-<h1>All conversations</h1>
-<% @conversations.each do |convo|%>
-  <div>
-    <%= link_to convo.subject, conversation_path(convo) %>
-  </div>
-<% end %>
+<div class="card text-center">
+  <h1>All conversations</h1>
+  <% @conversations.each do |convo|%>
+    <div>
+      <%= link_to convo.subject + " - " + convo.recipients.delete_if {|x| x == current_user}[0].name, conversation_path(convo) %>
+      <%# raise %>
+    </div>
+  <% end %>
+</div>
 <%# link_to 'New Conversation', new_conversation_path %>

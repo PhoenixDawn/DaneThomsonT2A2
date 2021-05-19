@@ -1,7 +1,12 @@
-<h1>Welcome!</h1>
-<%if current_user %>
-  <p> <%= current_user.email %></p>
-  <%current_user.roles.each do |roles| %>
-    <p> <%= roles.name %></p>
+<div class="card text-center">
+  <h1>Welcome!</h1>
+  <p>This is a website where grandma's can sell their cookies to people around Australia</p>
+  <%if current_user %>
+    <p> <%= current_user.name %></p>
+    <% if current_user.has_role? :grandma %>
+      <p> You are a grandma! You can make listsings</p>
+    <% else %>
+      <p> To become a grandma, go to profile, then edit and press the become a grandma button up the top</p>
+    <% end %>
   <% end %>
-<% end %>
+</div>

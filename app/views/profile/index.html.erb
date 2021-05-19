@@ -1,15 +1,17 @@
-<h1>Profile</h1>
-<strong>Name:</strong>
-<p><%=current_user.name%></p>
-<strong>Email:</strong>
-<p><%=current_user.email%></p>
-<strong>Roles</strong>
-<% current_user.roles.each do |role|%>
-  <p><%= role.name.capitalize %></p>
-<% end %>
-<div>
-  <strong>Address</strong>
-  <p><%= current_user.street_number%>, <%=current_user.suburb%>, <%=current_user.postcode%>, <%=current_user.state%></p>
+<div class="card text-center">
+  <h1>Profile</h1>
+  <strong>Name:</strong>
+  <p><%=current_user.name%></p>
+  <strong>Email:</strong>
+  <p><%=current_user.email%></p>
+  <strong>Roles</strong>
+  <% current_user.roles.each do |role|%>
+    <p><%= role.name.capitalize %></p>
+  <% end %>
+  <div>
+    <strong>Address</strong>
+    <p><%= current_user.street_number%>, <%=current_user.suburb%>, <%=current_user.postcode%>, <%=current_user.state%></p>
+  </div>
+  <%= link_to 'edit', edit_user_registration_path %>
+  <%= link_to 'back', root_path %>
 </div>
-<%= link_to 'edit', edit_user_registration_path %>
-<%= link_to 'back', root_path %>
