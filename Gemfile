@@ -70,3 +70,5 @@ gem "mailboxer", "~> 0.15.1"
 gem "bootstrap", "~> 5.0"
 
 gem "jquery-rails", "~> 4.4"
+
+gem "stripe", "~> 5.32"
