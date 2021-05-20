@@ -4,7 +4,7 @@
 <% @orders.each do |order| %>
   <h3>Item: <%=order.listing.name%></h3>
   <p>Price: $<%= order.listing.price %></p>
-  <p>From: <%= order.listing.user.name %></p>
+  <p>From: <%= link_to order.listing.user.name, listings_show_users_path(order.listing.user) %></p>
   <p>Date: <%= order.created_at %></p>
   <hr>
 <% end %>
