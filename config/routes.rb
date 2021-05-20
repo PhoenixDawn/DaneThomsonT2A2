@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get "/success/:uid/:lid", to: "listings#purchased"
   get "/success/canceled", to: "listings#canceled_payment"
 
+  #Orders
+  get "/orders", to: "orders#index", as: "orders"
+
   #Direct message routes
   get "/conversations/new/:id", to: "conversations#new_direct_message", as: "direct_message"
   post "/conversations/new/:id", to: "conversations#create_direct_message"

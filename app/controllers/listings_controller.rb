@@ -95,9 +95,9 @@ class ListingsController < ApplicationController
   #GET /success/:userid/:listingid
   def purchased
     user = User.find(params[:uid])
-    listing = User.find(params[:lid])
-
-    user.orderhistory
+    listing = Listing.find(params[:lid])
+    Order.create(user: user, listing: listing)
+    redirect_to orders_path
   end
 
   private

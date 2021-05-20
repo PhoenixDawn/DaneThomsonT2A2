@@ -5,6 +5,7 @@ class User < ApplicationRecord
   before_destroy { messages.destroy_all }
 
   has_many :listings, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :street_number, presence: true
   validates :postcode, presence: true

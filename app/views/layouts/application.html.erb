@@ -21,6 +21,7 @@
           <span><%= link_to 'Profile', profile_path, class: "nav-link" %></span>
           <span><%= link_to 'Listings', listings_path, class: "nav-link" %></span>
           <span><%= link_to 'Messages', conversations_path, class: "nav-link" %></span>
+          <span><%= link_to 'Orders', orders_path, class: "nav-link" %></span>
         <% end %>
         <% if !current_user %>
           <span><%= link_to 'Login', new_user_session_path, class: "nav-link" %></span>
