@@ -1,36 +1,39 @@
 <%#Stripe payments%>
 <script src="https://js.stripe.com/v3/"></script>
-<p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-<p>
-  <strong>Ingredients:</strong>
-  <%= @listing.ingredients %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= link_to @listing.user.name, listings_show_users_path(@listing.user) %>
-</p>
-<p>
-  <% if @listing.photo.attached? %>
-    <%= cl_image_tag @listing.photo.key, :width=>500, :crop=>"fill" %>
-  <% end %></p>
-<% if current_user.id != @listing.user_id %>
-  <button id="checkout-button">Checkout</button>
-<% end %>
-<% if @listing.user_id == current_user.id %>
-  <%= link_to 'Edit', :back %> |
-<% end %>
-<%= link_to 'Back', listings_path %>
+<div class="card text-center">
+  <h1>Listing from <%= @listing.user.name %></h1>
+  <p>
+    <strong>Name:</strong>
+    <%= @listing.name %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= @listing.price %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @listing.description %>
+  </p>
+  <p>
+    <strong>Ingredients:</strong>
+    <%= @listing.ingredients %>
+  </p>
+  <p>
+    <strong>User:</strong>
+    <%= link_to @listing.user.name, listings_show_users_path(@listing.user) %>
+  </p>
+  <p>
+    <% if @listing.photo.attached? %>
+      <%= cl_image_tag @listing.photo.key, :width=>500, :crop=>"fill" %>
+    <% end %></p>
+  <% if current_user.id != @listing.user_id %>
+    <button class="btn btn-primary" id="checkout-button">Checkout</button>
+  <% end %>
+  <% if @listing.user_id == current_user.id %>
+    <%= link_to 'Edit', :back %> |
+  <% end %>
+  <%= link_to 'Back', listings_path %>
+</div>
 <script type="text/javascript">
   // Create an instance of the Stripe object with your publishable API key
   var stripe = Stripe("pk_test_51IqT8GIqg2MFJuquyNGLFg7ickwFsQLt7mhrI1TPTkZr3aKekX6oBiMYKyqCz57youkYOVciQZwYiLx3vjQ0MV2k008nNXyeIF");

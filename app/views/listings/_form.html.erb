@@ -11,23 +11,23 @@
   <% end %>
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "col-sm-3 col-form-label" %>
   </div>
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class: "col-sm-3 col-form-label" %>
   </div>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class: "col-sm-3 col-form-label" %>
   </div>
   <div class="field">
     <%= form.label :ingredients %>
-    <%= form.text_area :ingredients %>
+    <%= form.text_area :ingredients, class: "col-sm-3 col-form-label" %>
   </div>
   <div class="field">
     <%= form.label :photo %>
-    <%= form.file_field :photo %>
+    <%= form.file_field :photo, class: "col-sm-3 col-form-label btn btn-primary" %>
   </div>
   <div class="actions">
     <%= form.submit %>

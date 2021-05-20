@@ -101,6 +101,7 @@ class ListingsController < ApplicationController
     user = User.find(params[:uid])
     listing = Listing.find(params[:lid])
     order = Order.create(user: user, listing: listing)
+    #Send a message to the owner of the listing with postage information and item information
     user.send_message(listing.user, "#{user.name} PURCHASED #{listing.name} for $#{listing.price} \n Please send to #{user.address}", "#{order.created_at} PURCHASE #{user.name}")
     redirect_to orders_path
   end
