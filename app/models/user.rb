@@ -16,4 +16,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable #, :confirmable
+
+  def address
+    return "#{street_number}, #{suburb}, #{postcode}, #{state}"
+  end
 end

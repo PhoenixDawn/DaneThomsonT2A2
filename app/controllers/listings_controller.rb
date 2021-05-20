@@ -100,7 +100,8 @@ class ListingsController < ApplicationController
   def purchased
     user = User.find(params[:uid])
     listing = Listing.find(params[:lid])
-    Order.create(user: user, listing: listing)
+    order = Order.create(user: user, listing: listing)
+    user.send_message(listing.user, "#{user.name} PURCHASED #{listing.name} for $#{listing.price} \n Please send to #{user.address}", "#{order.created_at} PURCHASE #{user.name}")
     redirect_to orders_path
   end
 
