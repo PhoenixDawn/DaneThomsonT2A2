@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
-
+  skip_before_action :verify_authenticity_token, only: [:buy]
   # GET /listings or /listings.json
   def index
     @listings = Listing.all
@@ -66,6 +66,38 @@ class ListingsController < ApplicationController
     user = User.find(params[:id])
     @grandma = user
     @listings = Listing.where(user_id: user.id)
+  end
+
+  #POST /create-checkout-session
+  def buy
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    listing = Listing.find(params[:id])
+    session = Stripe::Checkout::Session.create({
+      payment_method_types: ["card"],
+      line_items: [{
+        price_data: {
+          currency: "aud",
+          product_data: {
+            name: listing.name,
+          },
+          unit_amount: listing.return_price,
+        },
+        quantity: 1,
+      }],
+      mode: "payment",
+      # These placeholder URLs will be replaced in a following step.
+      success_url: "http://localhost:3000/success/#{current_user.id}/#{listing.id}",
+      cancel_url: "http://localhost:3000/cancel",
+    })
+    render json: session
+  end
+
+  #GET /success/:userid/:listingid
+  def purchased
+    user = User.find(params[:uid])
+    listing = User.find(params[:lid])
+
+    user.orderhistory
   end
 
   private

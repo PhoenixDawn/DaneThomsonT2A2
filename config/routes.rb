@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  #Stripe payment routes
+  post "/create-checkout-session/:id", to: "listings#buy", as: "purchase_listing"
+  get "/success/:uid/:lid", to: "listings#purchased"
+  get "/success/canceled", to: "listings#canceled_payment"
+
   #Direct message routes
   get "/conversations/new/:id", to: "conversations#new_direct_message", as: "direct_message"
   post "/conversations/new/:id", to: "conversations#create_direct_message"
