@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    #Pundit access
     authorize @listing
   end
 
@@ -25,6 +26,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
+    #Pundit access
     authorize @listing
     respond_to do |format|
       if @listing.save
@@ -39,6 +41,7 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1 or /listings/1.json
   def update
+    #Pundit access
     authorize @listing
     respond_to do |format|
       if @listing.update(listing_params)
@@ -53,6 +56,7 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1 or /listings/1.json
   def destroy
+    #Pundit access
     authorize @listing
     @listing.destroy
     respond_to do |format|
@@ -86,8 +90,8 @@ class ListingsController < ApplicationController
       }],
       mode: "payment",
       # These placeholder URLs will be replaced in a following step.
-      success_url: "http://localhost:3000/success/#{current_user.id}/#{listing.id}",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: "#{request.base_url}/success/#{current_user.id}/#{listing.id}",
+      cancel_url: "#{request.base_url}/cancel",
     })
     render json: session
   end
