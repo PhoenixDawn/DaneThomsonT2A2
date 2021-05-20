@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #Stripe payment routes
   post "/create-checkout-session/:id", to: "listings#buy", as: "purchase_listing"
   get "/success/:uid/:lid", to: "listings#purchased"
-  get "/success/canceled", to: "listings#canceled_payment"
+  get "/cancel", to: "listings#canceled_payment"
 
   #Orders
   get "/orders", to: "orders#index", as: "orders"

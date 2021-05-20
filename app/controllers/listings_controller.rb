@@ -106,6 +106,10 @@ class ListingsController < ApplicationController
     redirect_to orders_path
   end
 
+  def canceled_payment
+    redirect_to listings_path
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
