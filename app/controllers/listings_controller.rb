@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:buy]
   # GET /listings or /listings.json
   def index
+    # Retrieve all listings to display
     @listings = Listing.all
   end
 

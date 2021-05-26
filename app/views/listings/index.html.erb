@@ -2,7 +2,11 @@
 <div class= "d-flex flex-wrap justify-content-around">
   <% @listings.each do |listing| %>
     <div class="card me-5 mb-3" style="width: 18rem;">
-      <%= cl_image_tag listing.photo.key, width:150, height: 150, crop: "fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
+      <% if !listing.photo.attached? %>
+        <%= image_tag("http://via.placeholder.com/50", width: 150, height: 150, crop: "fill", class: 'card-img-top img-fluid')%>
+      <% else %>
+        <%= cl_image_tag listing.photo.key, width:150, height: 150, crop: "fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= listing.name %></h5>
         <p class="card-text"><%= listing.description %></p>

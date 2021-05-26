@@ -27,6 +27,11 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path(receipt.conversation)
   end
 
+  def destroy
+    current_user.mailbox.conversations.find(params[:id]).destroy
+    redirect_to conversations_path
+  end
+
   private
 
   def get_body

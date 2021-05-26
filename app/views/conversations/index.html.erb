@@ -3,6 +3,8 @@
   <% @conversations.each do |convo|%>
     <div>
       <%= link_to convo.subject + " - " + convo.recipients.delete_if {|x| x == current_user}[0].name, conversation_path(convo) %>
+      |
+      <%= link_to 'Delete', conversation_path(convo), method: :delete, data: {confirm: "Are you sure?"} %>
       <%# raise %>
     </div>
   <% end %>
