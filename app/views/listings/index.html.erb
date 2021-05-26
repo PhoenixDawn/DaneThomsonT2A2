@@ -3,7 +3,7 @@
   <% @listings.each do |listing| %>
     <div class="card me-5 mb-3" style="width: 18rem;">
       <% if !listing.photo.attached? %>
-        <%= image_tag("http://via.placeholder.com/50", width: 150, height: 150, crop: "fill", class: 'card-img-top img-fluid')%>
+        <%= image_tag("http://via.placeholder.com/150", width: 150, height: 150, crop: "fill", class: 'card-img-top img-fluid')%>
       <% else %>
         <%= cl_image_tag listing.photo.key, width:150, height: 150, crop: "fill", class: "card-img-top img-fluid", alt: "Photo of goods" %>
       <% end %>
