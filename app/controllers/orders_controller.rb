@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  # Only retrieve listings that a user has
-  # This is for the display page of a grandma
+  # Only retrieve orders a user has
+  # From here we will be grabbing the listing attached to it
   def index
     @orders = Order.where(user_id: current_user.id)
   end
