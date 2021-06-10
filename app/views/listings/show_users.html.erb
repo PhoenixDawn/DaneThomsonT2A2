@@ -11,7 +11,7 @@
         <p class="card-text"><%= listing.description %></p>
         <%= link_to 'View', listing, class: "btn btn-primary text-light" %>
         <% if listing.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-primary text-light" %>
+          <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-primary text-light" %>
           <%= link_to 'Remove', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary text-light bg-danger" %>
         <% end %>
       </div>
